@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 public class Päevik {
 
-    private List<Sissekanne> sissekanded = new ArrayList<>();
+    private List<Sissekanne> sissekanded;
 
     public Päevik(List<Sissekanne> sissekanne) {
         this.sissekanded = sissekanne;
@@ -25,17 +26,15 @@ public class Päevik {
     }
 
     public List<Sissekanne> tegevusteAruanne() {
-        for (Sissekanne tegevus : sissekanded) {
-            if (tegevus.kestus() > 0) {
-                sissekanded.add(tegevus);
+        List<Sissekanne> tegevused = new ArrayList<>();
+        for (Sissekanne kanne : sissekanded) {
+            if (kanne.kestus() > 0) {
+                tegevused.add(kanne);
             }
         }
-        Collections.sort(sissekanded);
-        return sissekanded;
+        Collections.sort(tegevused);
+        return tegevused;
     }
-
-
 }
-
 
 
