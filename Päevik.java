@@ -4,20 +4,18 @@ import java.util.List;
 
 public class Päevik {
 
-    private double kestus;
-
     private List<Sissekanne> sissekanded = new ArrayList<>();
 
     public Päevik(List<Sissekanne> sissekanne) {
         this.sissekanded = sissekanne;
     }
 
-    public List<Sissekanne> tegevusteAruanne(Sissekanne sissekanne) {
-        if (kestus > 0) {
-            sissekanded.add(sissekanne);
+    public double koguKestus() {
+        double summa = 0;
+        for (Sissekanne kanne : sissekanded) {
+            summa += kanne.kestus();
         }
-        Collections.sort(sissekanded);
-        return sissekanded;
+        return summa;
     }
 
     public void väljasta() {
@@ -26,8 +24,18 @@ public class Päevik {
         }
     }
 
+    public List<Sissekanne> tegevusteAruanne() {
+        for (Sissekanne tegevus : sissekanded) {
+            if (tegevus.kestus() > 0) {
+                sissekanded.add(tegevus);
+            }
+        }
+        Collections.sort(sissekanded);
+        return sissekanded;
+    }
 
 
 }
+
 
 
