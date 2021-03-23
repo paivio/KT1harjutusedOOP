@@ -29,8 +29,10 @@ public class Peaklass {
         String failinimi = "sissekanded.txt";
         List<Sissekanne> testkanded = loeSissekanded(failinimi);
         Päevik päevik = new Päevik(testkanded);
-        päevik.väljasta();
 
+        päevik.väljasta();
+        System.out.println(päevik.koguKestus());
+        System.out.println(päevik.tegevusteAruanne());
 
     }
 }
