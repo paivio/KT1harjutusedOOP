@@ -1,1 +1,1 @@
-# KT1Harjutused
+## OOP 1. kontrolltöö harjutusülesanne
